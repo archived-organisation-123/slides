@@ -1,0 +1,367 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/blood.css">
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown>
+					<textarea data-template>
+						## Introduction to Source Control
+
+						`1nFwoRks!` <!-- .element: class="fragment fade-up" -->
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Why is Version Control Important?
+
+						As a project grows and becomes more complex we need some way to robustly handle:
+
+						- Versioning
+						- Rolling back Changes
+						- Collaboration
+						- Back-ups
+
+						Note:
+						- Versioning: Knowing exactly what's in a particular release
+						- Rolling Back Changes: Easily undo mistakes or uneeded changes
+						- Collaboration: Most projects don't just have on person working on them
+						- Back ups: You really don't want to lose your hard work.
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Is this Version Control?
+
+						![not source control](img/scm/not_source_control.png)
+
+						Note:
+						- Technically yes. But it's cumbersome and error prone.
+						- Difficult to tell what differences there are between two versions.
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### What is Version Control Software
+
+						![git](img/scm/git-logo.png)
+
+						Version Control Software (VCS) is a set of tools for managing changes to a set of files.
+
+						It is used in many software projects to manage source code and is often called Source Code Management (SCM) or Revision Control
+
+						There are many notable examples of Version Control Software however we are going to one of most popular in this workshop - Git.
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Advantages of Version Control Software
+
+						- Single source of truth
+						- Highly granular change history
+						- Easily view differences between versions
+						- Tools to aid collaboration
+
+						Note:
+						- Show example of each in presentation repository
+						- Just the one directory!
+						- git log
+						- git show
+						- Explain the concept of branches but we're not going to cover them today.
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Let's explore Git
+
+						Note:
+						- Show config
+						- Create a repository called hacktoberfest
+						- Add a README.md with hello world
+						- git diff
+						- git add
+						- git status
+						- git diff --staged
+						- git commit (Explain how to write a good commit message. Next slide!)
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Good commit messages
+
+						- Keep commits to a single logical change.
+						- 50 character subject in the imperative mood.
+						- Think "When applied, this commit will..."
+						- Elaborate on the change in a body after a blank line if needed.
+
+						>Remove the speed limiter in time-travel mode
+
+						>A plot device requires the DeLorean to travel at 88 mph in order to activate the Flux Capacitor.
+				    The safety speed limiter is disabled when running in time-travel mode in order to fulfil the
+				    director's vision. This does not affect cruising mode.
+
+						Note:
+						- git log
+						- git show
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Cheatsheet 1
+
+						Download Git & open your terminal
+
+						Set name and email for commit messages
+
+						    git config --global user.name "Daniel J. Rollins"
+						    git config --global user.email "daniel@djrollins.com"
+
+						Create a new repository
+
+						    mkdir hacktoberfest-2018
+						    cd hacktoberfest-2018
+						    git init
+
+						Add a file and add some content
+
+						    echo Hello World! > README.md
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Cheatsheet 2
+
+						|Action|Command|
+						|---|-------------|
+						|View your changes|`git diff`|
+						|Stage changes|`git add README.md`|
+						|Get an overview of your changes|`git status`|
+						|Commit your changes|`git commit`|
+						|View commit details|`git log`|
+						||`git show`|
+
+					</textarea>
+				</section>
+				<section data-background-image="img/scm/GitNoPush.png"
+				data-background-size="1600px"
+				data-background-opacity=0.2 data-markdown>
+					<textarea data-template>
+						### Publishing Code
+
+						A git repository that only we can work on is not very useful.
+
+						We need to publish our repository somewhere on the Internet so others can download our software and make changes to it.
+
+						But where?
+
+						Note:
+						Being able to version and back up our code is great, but VCS become much more useful when you use them as the means to collaborate with others.
+
+					</textarea>
+				</section>
+				<section data-markdown data-background-image="img/scm/Octocat.jpg"
+				data-background-opacity=0.2>
+					<textarea data-template>
+						### GitHub
+
+						GitHub is the most popular, free code hosting platform. It allows you to:
+
+						- Browse through millions of software repositories that other people have made, including big companies like Google or Microsoft or the CodeUp Leeds website
+						- Upload your own code to share it with others so they can use it and help you improve it
+
+						[github.com](https://github.com )
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Creating a Repository
+
+						You can create unlimited, public git repositories on GitHub.
+
+						You don't need an account to download code made by others, but you will need to to upload your own.
+
+						![github](img/scm/CreateGithubRepo.png)<!-- .element: style="width:40%" -->
+
+					</textarea>
+				</section>
+				<section data-markdown data-background-image="img/scm/GitPullPush.png"
+				data-background-size="1600px"
+				data-background-opacity=0.4>
+					<textarea data-template>
+						### Uploading Our Code to GitHub
+
+						Once we've created a repository on GitHub, we can point our local git repo to it by using its GitHub address.
+
+						    git remote add origin https://github.com/codeupleeds/intro_to_scm.git
+
+						Then we can _push_ our code to it
+
+						    git push --set-upstream origin master
+
+						Note:
+						The --set-upstream origin master flag sets the remote repository as the default one when doing an argument-less push.
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Cheatsheet
+
+						Create a new repo on GitHub. Make sure you leave all in the defaults (except the name!)
+
+						Set origin
+
+						    git remote add origin https://github.com/<repo_url>
+
+						Set origin as our default push target and do a first push onto it
+
+						    git push --set-upstream origin master
+
+						From here on, we can simply write the following to publish our latest changes
+
+						    git push
+
+						Note:
+						Exercise: sign up on GitHub, create a new repository (don't initialise it), push local git repo
+
+					</textarea>
+				</section>
+				<section data-markdown data-background-image="img/scm/GithubCloneDiagram.png"
+				data-background-size="1000px"
+				data-background-opacity=0.4>
+					<textarea data-template>
+						### Contributing to existing software projects
+
+						You can download git repositories uploaded by others to GitHub into your computer by cloning them.
+
+						    git clone https://github.com/codeupleeds/codeupleeds.github.io.git
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Pulling
+
+						Once you've cloned a repo into a git repository in your computer, you can update your local repo to keep it in sync with the original on GitHub by pulling from it.
+
+						    git pull
+
+						Note:
+						Cloning is only ever needed once when downloading a new repo for the first time.
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Forking
+
+						On GitHub, you can fork any public repository to create a verbatim copy of it that you own and can freely change.
+
+						If you want to incorporate your changes into the original project, you raise a pull request, which is a request to merge the changes you made in your fork into it.
+
+						- Configure git to to sync your fork with the original repository
+
+						    git remote add upstream https://github.com/codeupleeds/codeupleeds.github.io.git
+
+						- Push your changes up to your fork
+
+						    git push
+
+						- Raise a Pull Request on GitHub to let the original authors know you would like them to add your changes to the original repo (upstream)
+
+						Note:
+						_ Pull requests, aka merge requests, are notifications you send to the owners of a repository you forked to ask them to include a change you made in your own fork
+						- Merge pull request into CodeUp Leeds website.
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Basic Workflow
+
+						![github](img/scm/GithubFlowDiagram.png)
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Adding your own page to the CodeUp Leeds website
+
+						[https://github.com/codeupleeds/codeupleeds.github.io](https://github.com/codeupleeds/codeupleeds.github.io)
+
+						- Fork the repository
+						- Clone your fork
+						- Add your own page: copy it from `template.html`
+						- Commit your change and push it to your fork
+						- Raise a pull request
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Cheatsheet
+
+						Clone your fork
+
+						    git clone https://github.com/<yourusername>/codeupleeds.github.io.git
+
+						Create your own page
+
+						    cp template.html newpage.html
+
+						Stage the new page
+
+						    git add newpage.html
+
+						Create commit
+
+						    git commit -m "Add new page"
+
+						Push your changes to your fork
+
+						    git push -u origin HEAD
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Let us know how we did
+
+						- Please fill in one of the survey forms that will be handed out to you
+						- Or scan the QR code below to do it online
+
+					</textarea>
+				</section>
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); hljs.configure({tabReplace: '  '}) } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
