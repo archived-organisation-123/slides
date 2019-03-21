@@ -128,26 +128,27 @@
 						<pre><code>sudo apt-get install git</code></pre>
 					</textarea>
 				</section>
-				<section data-markdown>
-					<textarea data-template>
-						### Cheatsheet 1
+				<section>
+						<h3>Cheatsheet 1</h3>
+						<ul style="width:70%">
+						<li>Download Git & open your terminal</li>
 
-						Set name and email for commit messages
+						<li>Set name and email for commit messages</li>
 
-						    git config --global user.name "Bianca Linscott"
-						    git config --global user.email "bianca@linscott.com"
+						    <pre><code>git config --global user.name "Bianca Linscott"</code></pre>
+						    <pre><code>git config --global user.email "bianca@linscott.com"</code></pre>
 
-						Create a new repository
+						<li>Create a new repository</li>
 
-						    mkdir codeupleeds
-						    cd codeupleeds
-						    git init
+						    <pre><code>mkdir codeupleeds</code></pre>
+						    <pre><code>cd codeupleeds</code></pre>
+						    <pre><code>git init</code></pre>
 
-						Add a file and add some content
+						<li>Add a file and add some content</li>
 
-						    echo Hello World! > README.md
+						    <pre><code>echo Hello World! > README.md</code></pre>
+						</ul>
 
-					</textarea>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
@@ -163,9 +164,7 @@
 						||`git show`|
 					</textarea>
 				</section>
-				<section data-background-image="img/scm/GitNoPush.png"
-				data-background-size="1600px"
-				data-background-opacity=0.2 data-markdown>
+				<section data-markdown>
 					<textarea data-template>
 						### Publishing Code
 
@@ -178,6 +177,8 @@
 						Note:
 						Being able to version and back up our code is great, but VCS become much more useful when you use them as the means to collaborate with others.
 					</textarea>
+				</section>
+				<section data-background-image="img/scm/GitNoPush.png" data-background-size="1600px">
 				</section>
 				<section data-markdown data-background-image="img/scm/Octocat.jpg"
 				data-background-opacity=0.2>
@@ -201,13 +202,11 @@
 
 						You don't need an account to download code made by others, but you will need to to upload your own.
 
-						![github](img/scm/CreateGithubRepo.png)<!-- .element: style="width:40%" -->
+						![github](img/scm/CreateGithubRepo.png)<!-- .element: style="width:60%" -->
 
 					</textarea>
 				</section>
-				<section data-markdown data-background-image="img/scm/GitPullPush.png"
-				data-background-size="1600px"
-				data-background-opacity=0.4>
+				<section data-markdown>
 					<textarea data-template>
 						### Uploading Our Code to GitHub
 
@@ -224,32 +223,32 @@
 
 					</textarea>
 				</section>
-				<section data-markdown>
-					<textarea data-template>
-						### Cheatsheet
+				<section data-background-image="img/scm/GitPullPush.png" data-background-size="1600px">
+			</section>
+				<section>
+						<h3>Cheatsheet</h3>
 
-						Create a new repo on GitHub. Make sure you leave all in the defaults (except the name!)
+						<ul>
+						<li>Create a new repo on GitHub. Make sure you leave all in the defaults (except the name!)</li>
 
-						Set origin
+						<li>Set origin</li>
 
-						    git remote add origin https://github.com/<repo_url>
+						    <pre><code>git remote add origin https://github.com/[repo_url]</code></pre>
 
-						Set origin as our default push target and do a first push onto it
+						<li>Set origin as our default push target and do a first push onto it</li>
 
-						    git push --set-upstream origin master
+						    <pre><code>git push --set-upstream origin master</code></pre>
 
-						From here on, we can simply write the following to publish our latest changes
+						<li>From here on, we can simply write the following to publish our latest changes</li>
 
-						    git push
+						    <pre><code>git push</code></pre>
+						</ul>
 
-						Note:
+						<aside class="notes">
 						Exercise: sign up on GitHub, create a new repository (don't initialise it), push local git repo
-
-					</textarea>
+						</aside>
 				</section>
-				<section data-markdown data-background-image="img/scm/GithubCloneDiagram.png"
-				data-background-size="1000px"
-				data-background-opacity=0.4>
+				<section data-markdown>
 					<textarea data-template>
 						### Contributing to existing software projects
 
@@ -258,6 +257,8 @@
 						    git clone https://github.com/codeupleeds/codeupleeds.github.io.git
 
 					</textarea>
+				</section>
+				<section data-markdown data-background-image="img/scm/GithubCloneDiagram.png" data-background-size="1000px">
 				</section>
 				<section data-markdown>
 					<textarea data-template>
@@ -272,29 +273,27 @@
 
 					</textarea>
 				</section>
-				<section data-markdown>
-					<textarea data-template>
-						### Forking
+				<section>
+						<h3>Forking</h3>
 
-						On GitHub, you can fork any public repository to create a verbatim copy of it that you own and can freely change.
+						<p>On GitHub, you can fork any public repository to create a verbatim copy of it that you own and can freely change.</p>
 
-						If you want to incorporate your changes into the original project, you raise a pull request, which is a request to merge the changes you made in your fork into it.
+						<p>If you want to incorporate your changes into the original project, you raise a pull request, which is a request to merge the changes you made in your fork into it.</p>
 
-						- Configure git to to sync your fork with the original repository
+						<ul>
+						<li>Configure git to to sync your fork with the original repository</li>
 
-						    git remote add upstream https://github.com/codeupleeds/codeupleeds.github.io.git
+						    <pre><code>git remote add upstream https://github.com/codeupleeds/codeupleeds.github.io.git</code></pre>
 
-						- Push your changes up to your fork
+						<li>Push your changes up to your fork</li>
 
-							git push
+						    <pre><code>git push</code></pre>
 
-						- Raise a Pull Request on GitHub to let the original authors know you would like them to add your changes to the original repo (upstream)
-
-						Note:
-						_ Pull requests, aka merge requests, are notifications you send to the owners of a repository you forked to ask them to include a change you made in your own fork
-						- Merge pull request into CodeUp Leeds website.
-
-					</textarea>
+						<li>Raise a Pull Request on GitHub to let the original authors know you would like them to add your changes to the original repo (upstream)</li>
+					</ul>
+						<aside class="notes">
+						  <li>Pull requests, aka merge requests, are notifications you send to the owners of a repository you forked to ask them to include a change you made in your own fork</li>
+						  <li>Merge pull request into CodeUp Leeds website.</li>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
@@ -318,31 +317,29 @@
 
 					</textarea>
 				</section>
-				<section data-markdown>
-					<textarea data-template>
-						### Cheatsheet
+				<section>
+						<h3>Cheatsheet</h3>
+						<ul style="width:100%">
+						<li>Clone your fork</li>
 
-						Clone your fork
+						    <pre><code>git clone https://github.com/<yourusername>/codeupleeds.github.io.git</code></pre>
 
-						    git clone https://github.com/<yourusername>/codeupleeds.github.io.git
+						<li>Create your own page</li>
 
-						Create your own page
+						    <pre><code>cp template.html newpage.html</code></pre>
 
-						    cp template.html newpage.html
+						<li>Stage the new page</li>
 
-						Stage the new page
+						    <pre><code>git add newpage.html</code></pre>
 
-						    git add newpage.html
+						<li>Create commit</li>
 
-						Create commit
+						    <pre><code>git commit -m "Add new page"</code></pre>
 
-						    git commit -m "Add new page"
+						<li>Push your changes to your fork</li>
 
-						Push your changes to your fork
-
-						    git push -u origin HEAD
-
-					</textarea>
+						    <pre><code>git push -u origin HEAD</code></pre>
+						</ul>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
@@ -350,9 +347,9 @@
 
 						- Please fill in one of the survey forms that will be handed out to you
 						- Or scan the QR code below to do it online
-						
-						
-						
+
+
+
 						[Join us on Slack!](https://join.slack.com/t/codeupleeds/shared_invite/enQtMzgyODEzODYwODIxLWY1MTZkOTc0MGQ0ZDlhNTkzYmI2YmIxMGJiYzdjZjI5Y2Q1ZTgyMTQyZmZmOTBiZDQzNWQ4NmJlNjc3ZjlhN2E)
 					</textarea>
 				</section>
