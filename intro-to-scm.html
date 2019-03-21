@@ -117,15 +117,15 @@
 						### Downloading Git
 
 						<li>Windows</li>
-						<pre><code>https://gitforwindows.org/</code></pre>
+						<pre><code class="shell hljs">https://gitforwindows.org/</code></pre>
 
 						<li>Mac</li>
-						<pre><code>git --version</code></pre>
-						<pre><code>brew install git</code></pre>
+						<pre><code class="shell hljs">git --version</code></pre>
+						<pre><code class="shell hljs">brew install git</code></pre>
 
 						<li>Ubuntu</li>
-						<pre><code>git --version</code></pre>
-						<pre><code>sudo apt-get install git</code></pre>
+						<pre><code class="shell hljs">git --version</code></pre>
+						<pre><code class="shell hljs">sudo apt-get install git</code></pre>
 					</textarea>
 				</section>
 				<section>
@@ -135,18 +135,18 @@
 
 						<li>Set name and email for commit messages</li>
 
-						    <pre><code>git config --global user.name "Bianca Linscott"</code></pre>
-						    <pre><code>git config --global user.email "bianca@linscott.com"</code></pre>
+						    <pre><code class="shell hljs">git config --global user.name "Bianca Linscott"</code></pre>
+						    <pre><code class="shell hljs">git config --global user.email "bianca@linscott.com"</code></pre>
 
 						<li>Create a new repository</li>
 
-						    <pre><code>mkdir codeupleeds</code></pre>
-						    <pre><code>cd codeupleeds</code></pre>
-						    <pre><code>git init</code></pre>
+						    <pre><code class="shell hljs">mkdir codeupleeds</code></pre>
+						    <pre><code class="shell hljs">cd codeupleeds</code></pre>
+						    <pre><code class="shell hljs">git init</code></pre>
 
 						<li>Add a file and add some content</li>
 
-						    <pre><code>echo Hello World! > README.md</code></pre>
+						    <pre><code class="shell hljs">echo Hello World! > README.md</code></pre>
 						</ul>
 
 				</section>
@@ -206,22 +206,21 @@
 
 					</textarea>
 				</section>
-				<section data-markdown>
-					<textarea data-template>
-						### Uploading Our Code to GitHub
+				<section>
+						<h3>Uploading Our Code to GitHub</h3>
 
-						Once we've created a repository on GitHub, we can point our local git repo to it by using its GitHub address.
+						<ul>
+						<li>Once we've created a repository on GitHub, we can point our local git repo to it by using its GitHub address.</li>
 
-						    git remote add origin https://github.com/codeupleeds/intro_to_scm.git
+						    <pre><code class="shell hljs">git remote add origin https://github.com/codeupleeds/intro_to_scm.git</code></pre>
 
-						Then we can _push_ our code to it
+						<li>Then we can <em>push</em> our code to it</li>
 
-						    git push --set-upstream origin master
+						    <pre><code class="shell hljs">git push --set-upstream origin master</code></pre>
 
-						Note:
+						<aside class="notes">
 						The --set-upstream origin master flag sets the remote repository as the default one when doing an argument-less push.
-
-					</textarea>
+						</aside>
 				</section>
 				<section data-background-image="img/scm/GitPullPush.png" data-background-size="1600px">
 			</section>
@@ -233,45 +232,41 @@
 
 						<li>Set origin</li>
 
-						    <pre><code>git remote add origin https://github.com/[repo_url]</code></pre>
+						    <pre><code class="shell hljs">git remote add origin https://github.com/[repo_url]</code></pre>
 
 						<li>Set origin as our default push target and do a first push onto it</li>
 
-						    <pre><code>git push --set-upstream origin master</code></pre>
+						    <pre><code class="shell hljs">git push --set-upstream origin master</code></pre>
 
 						<li>From here on, we can simply write the following to publish our latest changes</li>
 
-						    <pre><code>git push</code></pre>
+						    <pre><code class="shell hljs">git push</code></pre>
 						</ul>
 
 						<aside class="notes">
 						Exercise: sign up on GitHub, create a new repository (don't initialise it), push local git repo
 						</aside>
 				</section>
-				<section data-markdown>
-					<textarea data-template>
-						### Contributing to existing software projects
+				<section>
+						<h3>Contributing to existing software projects</h3>
 
-						You can download git repositories uploaded by others to GitHub into your computer by cloning them.
+						<p>You can download git repositories uploaded by others to GitHub into your computer by cloning them.</p>
 
-						    git clone https://github.com/codeupleeds/codeupleeds.github.io.git
+						    <pre><code class="shell hljs">git clone https://github.com/codeupleeds/codeupleeds.github.io.git</code></pre>
 
-					</textarea>
 				</section>
 				<section data-markdown data-background-image="img/scm/GithubCloneDiagram.png" data-background-size="1000px">
 				</section>
-				<section data-markdown>
-					<textarea data-template>
-						### Pulling
+				<section>
+						<h3>Pulling</h3>
 
-						Once you've cloned a repo into a git repository in your computer, you can update your local repo to keep it in sync with the original on GitHub by pulling from it.
+						<p>Once you've cloned a repo into a git repository in your computer, you can update your local repo to keep it in sync with the original on GitHub by pulling from it.</p>
 
-						    git pull
+						    <pre><code class="shell hljs">git pull</code></pre>
 
-						Note:
+						<aside class="notes">
 						Cloning is only ever needed once when downloading a new repo for the first time.
-
-					</textarea>
+						</aside>
 				</section>
 				<section>
 						<h3>Forking</h3>
@@ -283,17 +278,18 @@
 						<ul>
 						<li>Configure git to to sync your fork with the original repository</li>
 
-						    <pre><code>git remote add upstream https://github.com/codeupleeds/codeupleeds.github.io.git</code></pre>
+						    <pre><code class="shell hljs">git remote add upstream https://github.com/codeupleeds/codeupleeds.github.io.git</code></pre>
 
 						<li>Push your changes up to your fork</li>
 
-						    <pre><code>git push</code></pre>
+						    <pre><code class="shell hljs">git push</code></pre>
 
 						<li>Raise a Pull Request on GitHub to let the original authors know you would like them to add your changes to the original repo (upstream)</li>
 					</ul>
 						<aside class="notes">
 						  <li>Pull requests, aka merge requests, are notifications you send to the owners of a repository you forked to ask them to include a change you made in your own fork</li>
 						  <li>Merge pull request into CodeUp Leeds website.</li>
+						</aside>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
@@ -322,23 +318,23 @@
 						<ul style="width:100%">
 						<li>Clone your fork</li>
 
-						    <pre><code>git clone https://github.com/<yourusername>/codeupleeds.github.io.git</code></pre>
+						    <pre><code class="shell hljs">git clone https://github.com/[yourusername]/codeupleeds.github.io.git</code></pre>
 
 						<li>Create your own page</li>
 
-						    <pre><code>cp template.html newpage.html</code></pre>
+						    <pre><code class="shell hljs">cp template.html newpage.html</code></pre>
 
 						<li>Stage the new page</li>
 
-						    <pre><code>git add newpage.html</code></pre>
+						    <pre><code class="shell hljs">git add newpage.html</code></pre>
 
 						<li>Create commit</li>
 
-						    <pre><code>git commit -m "Add new page"</code></pre>
+						    <pre><code class="shell hljs">git commit -m "Add new page"</code></pre>
 
 						<li>Push your changes to your fork</li>
 
-						    <pre><code>git push -u origin HEAD</code></pre>
+						    <pre><code class="shell hljs">git push -u origin HEAD</code></pre>
 						</ul>
 				</section>
 				<section data-markdown>
