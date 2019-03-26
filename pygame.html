@@ -1,0 +1,92 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/blood.css">
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown>
+					<textarea data-template>
+						# Python and PyGame
+
+						`1nFwoRks!` <!-- .element: class="fragment" -->
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Hopefully you're all set up with:
+
+						- A project directory <!-- .element: class="fragment" -->
+						- A virtual environment using python 3.6.1 or later, with pygame installed (and venvdotapp if on mac) <!-- .element: class="fragment" -->
+
+						If not GET OUT! <!-- .element: class="fragment" -->
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Pygame
+
+						A library for making multimedia applications, like games!
+					</textarea>
+				</section>
+				<section>
+					<h2>
+						Time for a hello world situation
+					</h2>
+					<pre class="fragment">
+						<code class="python" data-trim>
+							import pygame, sys
+							from pygame.locals import *
+							pygame.init()
+							DISPLAYSURF = pygame.display.set_mode((400, 300))
+							pygame.display.set_caption('Hello World!')
+							while True: # main game loop
+								for event in pygame.event.get():
+									if event.type == QUIT:
+										pygame.quit()
+										sys.exit()
+									pygame.display.update()
+						</code>
+					</pre>
+				</section>
+				<section>
+					<p>
+						If you run this file you should see something like this:
+					</p>
+					<img class="stretch" data-src="img/hello_world.png">
+					<p>not much, but hey, it's a start!</p>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						Time to do something more interesting!
+						
+					</textarea>
+				</section>
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
