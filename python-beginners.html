@@ -1,0 +1,435 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/blood.css">
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown>
+					<textarea data-template>
+						## Python for beginners - Blackjack
+
+						`1nFwoRks!` <!-- .element: class="fragment fade-up" -->
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Getting Started
+
+						- Go to https://repl.it/languages/python3
+						- You will end up with a screen showing three columns
+						- Type in the middle one and click run, the output will show in the right column
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Variables
+
+						- A way to store something in memory. 'A named box to put something in'
+						- Similar to that of most languages, python has a simple variable syntax:
+							- Integer variable: `   x = 5`
+							- String variable: `   x = "sally"`
+						- Variable names are case sensitive
+						- Python is dynamically typed - you don't have to declare the type of the variable (Strongly typed languages like Java you do)
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Variables
+
+						Try setting some variables and then 'printing' them to the console using python's `print()` method.
+						```python
+						x = 1
+						print(x)
+						```
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Variables
+
+						You can use operators with variables, give it a go!
+						```python
+						x = 1
+						y = 2
+						print(x + y)
+						```
+						try playing around with strings too!
+					</textarea>
+				</section>
+				<section>
+					<h2>Lists, Tuples and Dicts</h2>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Lists
+
+						A collection which is ordered and changeable (mutable)
+						```python
+						mylist = ["pizza", "chicken", "dust"]
+						```
+						You can access lists with the syntax `mylist[i]` where i is the position of the element.
+						List indexes start from 0 though!
+						```python
+						mylist[0]
+						"pizza"
+						mylist[1]
+						"chicken"
+						```
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Lists
+
+						List values can be changed (mutated) like so:
+						```python
+						mylist = ["bulbasaur", "charmander", "squirtle"]
+						mylist[1] = "ditto"
+						print(mylist)
+						["bulbasaur", "ditto", "squirtle"]
+						```
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						Have a go at creating a list, accessing elements of it, and changing elements.
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Tuples
+
+						- A tuple is a collection which is ordered and unchangeable (immutable).
+						- In python tuples are written with round brackets:
+						```python
+							thistuple = ("apple", "banana", "cherry")
+						```
+						- Values are accessed like for lists - by index
+						```python
+							thistuple[2]
+							"cherry"
+						```
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						Try changing the value of one of the tuple contents. What do you think will happen?
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Dicts
+
+						- A dictionary, like the prevous two, is a collection of values. However the indexes can be other data types than just integers.
+						- The contents of a dict are also unordered and changeable (mutable).
+						- In python dictionaries are written with curly brackets, and the index together with it's associated value is called a key-value pair.
+						```python
+							thisdict = {"apple": 0.20, "banana": 0.30, "cherry": 0.05}
+						```
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Dicts
+
+						- These are very useful for storing information in a meaningful and organised way, and easily accessing data
+						- Values are accessed by their key
+						```python
+							thisdict["banana"]
+							0.30
+						```
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						Have a go at creating a dictionary, accessing values from it, adding to it, and changing things in it
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Functions
+
+						- Like they sound, used to encapsulate functionality - they do something!
+						- In python the syntax is:
+						```python
+							def function_name():
+								# some stuff here
+						```
+						- Functions can also take 'parameters', things you want the function to do something with:
+						```python
+							def print_string(string):
+								print(string)
+						```
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Functions
+
+						If you want a function to do something, and then give you something back, you need to use the `return` statement
+						```python
+							def add_two_numbers(a, b):
+								return a + b
+						```
+						The return statement will also 'end' the function, so if there was any code after
+						the return statement, it would never get executed.
+						If there is no return statement, you will get nothing back from the function.
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Functions
+
+						Try playing around creating a function that returns something, and doesn't, and see what you get back:
+						```python
+							def your_function():
+								return #something
+
+							print(your_function())
+						```
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Loops
+
+						Things with multiple items in them, like lists and tuples, are called iterable - you can iterate over them
+						This means you can 'iterate' over every item in the list, and then do something with it!
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Loops
+
+						This is really useful! You can do something with every item in e.g. a list
+						```python
+							my_list = [1, 2, 3, 4, 5]
+							def square(x):
+								return x*x
+
+							for item in my_list:
+								print(square(item))
+						```
+
+						</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### TIME 4 BLACKJACK
+					</textarea>
+				</section>
+				<section>
+						<h5>Blackjack Basics</h5>
+
+						<p style="font-size: 75%; text-align: left">For those that do not know the rules of blackjack (which will be integral to writing this little application!):</p>
+						<div style="font-size: 60%; text-align: left">
+							<li>You take a shuffled deck of cards and deal 2 to each player</li>
+							<li>The card number represents the cards value</li>
+							<li>Picture cards (Jack, Queen and King) are all worth 10</li>
+							<li>Initially, for the purposes of this exercise, aces are worth 1 point (you can change this later if you fancy the challenge)</li>
+							<li>Players can ‘hit’ (add another card to their hand) or ‘stick’ (keep with their current hand)</li>
+							<li>The aim is to get as close to 21 as possible without going over (going bust)</li>
+						  <li>You can continue to gain more cards (by Hitting) until you go bust or stick.</li>
+							<li>You will need to have a fake dealer who you play against. (The dealer will play without any user input, making decisions autonomously)</li>
+							<li>Closest to 21 wins</li>
+						</div>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### First steps...
+
+						- A deck of cards!
+						- Need to return a deck of cards that are shuffled
+						- There are many ways to do this, but for this example lets define a deck as a function
+						- The function should return you the deck when called
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### First steps...
+
+						- Functions in Python being with `def name_of_function():` so an example here would be:
+						```python
+							def deck():
+								# code here
+						```
+						- You can test this function by printing the deck in the terminal:
+						```python
+							cards = deck()  # assign deck to a variable first
+							print(cards)
+
+							or
+
+							print(deck())  # call and print all in one line
+						```
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Tips:
+
+						We will need a way to generate all cards in a deck
+						- Loops will probably be very helpful
+						- What will you be looping over?
+						- How will you store the things you are looping over?
+						- How will you store the cards you create?
+						- Think about different data types available to you such as integers, strings, lists, tuples and dictionaries
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Tips:
+
+						The deck will need to be shuffled.
+						There is something in Python's standard library you can use for this.
+						Try googling `random.shuffle()`
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### More advanced:
+
+						- If you have time you can try using ascii symbols to represent the suits... or even ascii art to represent entire cards
+						- You could look at alternatives to your regular for loop - check out list comprehensions
+						- So you have a never ending supply of cards, you could make it a generator, check these out! (Quite advanced...)
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Example
+
+						```python
+						import random
+						def deck():
+							suit = ['D', 'H', 'S', 'C']
+							value = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+							cards = []
+							for s in suit:
+								for v in value:
+									cards.append(s + v)
+							random.shuffle(cards)
+							return cards
+						```
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Creating the deal logic
+
+						- Now that we have a shuffled deck of cards we need to deal them out.
+						- The logic for dealing the cards can be as simple or as complicated as you want to make it.
+						- For now let's make it simple and pass in the deck of cards we've already made and make it return the last element of the list
+						- (remember the deck has been shuffled already from the random.shuffle).
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Tip:
+
+						The method `your_list.pop()` will give you the last element of a list
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Example
+
+						```python
+						def deal(cards):
+							return cards.pop()
+						```
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Scoring the cards
+
+						- Now that we hopefully have two cards as per the original game of blackjack, we need to score them up so we know what score we have for that round
+						- Let’s write a function that takes a card and gives you back a value for that card.
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Tip
+
+						There are lots of ways you can do this.
+						Some ideas:
+						- Use a dictionary?
+						- Use if-else statements?
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Example
+
+						```python
+						def score(card):
+						scores = {
+							 'A': 1, '2': 2, '3': 3, '4': 4, '5': 5,
+							 '6': 6, '7': 7, '8': 8, '9': 9, 'J': 10,
+							 'Q': 10, 'K': 10
+							}
+						return scores[card[0]]
+						current_deck = deck()
+						```
+					</textarea>
+				</section>
+				<section>
+						<h3>What to try if you finish all this...</h3>
+
+						<div style="font-size: 75%; text-align: left">
+						<li>Add ability for players to decide to hit or stick, and add cards appropriately to their hand.</li>
+						<li>Player’s can only add cards until they stick or go bust.</li>
+						<li>Currently we don’t include a dealer to play against, include a dealer’s hand and score.</li>
+						<li>Declare a winner depending on the score, give appropriate messages - who won, anyone bust etc.</li>
+						<li>Be able to have more than 1 player playing against the dealer.</li>
+						<li>Handle aces being high or low.</li>
+					</div>
+
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Questions?
+
+						- Get on slack! https://codeupleeds.github.io/resources.html
+						- Feel free to ask us any questions about the work you have done or any future features you want to add to this project.
+						- We will always try to give advice and help you.
+						- Come back in a month and we can have a quick look over your code.
+
+					</textarea>
+				</section>
+
+				<section>
+					Please fill out feedback!
+				</section>
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); hljs.configure({tabReplace: '  '}) } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
