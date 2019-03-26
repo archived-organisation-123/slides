@@ -1,0 +1,435 @@
+<html>
+<head>
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/blood.css">
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section data-markdown>
+			<textarea data-template>
+				## Object Orientated Programming with Python
+
+				`1nFwoRks!` <!-- .element: class="fragment fade-up" -->
+			</textarea>
+        </section>
+        <section data-markdown>
+			<textarea data-template>
+				### We are going to cover:
+
+				- What is Object Orientated Programming
+				- Why is it useful
+				- Classes
+				- Inheritance
+				- Examples using blackjack
+
+			</textarea>
+        </section>
+        <section data-markdown>
+			<textarea data-template>
+				## What is Object Orientated Programming?
+
+				You might be used to writing a list of instructions that the computer follows - this is called procedural programming.
+
+				OOP a way of writing programs, and thinking about the problem - in terms of objects!
+				Objects are used to represent data and methods, and objects can talk to each other and change the data in those objects.
+
+			</textarea>
+        </section>
+        <section data-markdown>
+			<textarea data-template>
+				## Why is it useful
+
+				Because of the way it is written, allows code to be easily reused by other parts of the program, or other programs entirely.
+
+				Abstracts away complexity for people using the objects. Should only expose behaviour of that object.
+
+				Helps to structure large and complex programs.
+
+			</textarea>
+        </section>
+        <section>
+            <h2>Classes</h2>
+
+            <p>Kind of the 'template' for an object. The code you write that describes the behaviour and data that
+                belongs to the object.</p>
+
+            <p>Syntax in Python:</p>
+            <pre>
+				<code class="python" data-trim>
+					class ClassName:
+
+						class_variable = 'string'  # shared between all instance of this class
+
+						def __init__(self, param1, param2):
+							self.instance_variable1 = param1  # unique to each instance of the class
+							self.instance_variable2 = param2
+
+						def method(self):
+							# method code
+				</code>
+			</pre>
+
+        </section>
+		<section>
+			<h2>Classes</h2>
+
+			<p>Example:</p>
+			<pre>
+				<code class="python" data-trim>
+					class Duck:
+
+						def __init__(self, name, breed):
+							self.name = name
+							self.breed = breed
+							self.hunger = 0
+							self.wet = False
+
+						def quack(self):
+							print(f'Quack!! I am {self.name}! Quack!')
+							self.hunger += 1
+
+						def eat(self):
+							self.hunger -= 1
+
+						def swim(self):
+							self.wet = True
+				</code>
+			</pre>
+
+		</section>
+        <section>
+            <h2>Classes</h2>
+
+            <p>Then, to use this class to make an object, an 'instance' of that class:</p>
+
+            <pre>
+				<code class="python" data-trim>
+					dave_duck = Duck('Dave', 'Mallard')
+
+					dave_duck.hunger
+					# 0
+
+					dave_duck.quack()
+					# Quack! I am Dave! Quack!
+
+					dave_duck.hunger
+					# 1
+				</code>
+			</pre>
+        </section>
+        <section data-markdown>
+			<textarea data-template>
+				## Inheritance
+
+				Often, different objects may have data or behaviour in common. In these cases it makes sense to have a 'base' class which other classes 'inherit' from.
+			</textarea>
+        </section>
+        <section>
+            <h2>Inheritance</h2>
+
+            <p>Using our duck class as an example, ducks are all birds, so:</p>
+
+            <pre style="font-size: 50%">
+				<code class="python" data-trim>
+					class Bird:
+
+						def __init__(self, name, breed):
+							self.name = name
+							self.breed = breed
+							self.hunger = 0
+
+						def eat(self):
+							self.hunger -= 1
+
+
+					class Duck(Bird):
+
+						def __init__(self, name, breed):
+							super().__init__(name, breed)
+							self.wet = False
+
+						def quack(self):
+							print(f'Quack!! I am {self.name}! Quack!')
+							self.hunger += 1
+
+						def swim(self):
+							self.wet = True
+							self.hunger += 1
+
+				</code>
+			</pre>
+        </section>
+		<section>
+			<h2>Inheritance</h2>
+
+			<p>If we now create an instance of a duck again, we will have access to all the data and behaviour of birds, and of ducks.</p>
+
+			<pre>
+				<code class="python" data-trim>
+					dave_duck = Duck('Dave', 'Mallard')
+
+					dave_duck.hunger
+					# 0
+					dave_duck.wet
+					# False
+
+					dave_duck.swim()
+					dave_duck.eat()
+
+					dave_duck.hunger
+					# 0
+					dave_duck.wet
+					# True
+				</code>
+			</pre>
+		</section>
+		<section>
+			<p>Lets use something from a previous course, the game of blackjack, to have a go at some OOP ourselves.</p>
+			<p>For anyone unfamiliar with it, blackjack is a card game, where the aim is to get closest to 21 without going over.</p>
+		</section>
+		<section>
+			<p>One of the first things we would need for a game of blackjack is a deck of cards.</p>
+			<p>We could just write a function that will make a deck of cards, and call that at the start of our program to create a deck for the game.</p>
+			<pre>
+				<code class="python" data-trim>
+					import random
+
+					def deck():
+						suits = ['D', 'H', 'S', 'C']
+						ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+						cards = []
+						for s in suits:
+							for r in ranks:
+								cards.append(s + r)
+						random.shuffle(cards)
+						return cards
+
+					deck = deck()
+					player_hand = []
+					player_hand.append(deck.pop())
+				</code>
+			</pre>
+		</section>
+		<section>
+			<p>Now, lets try creating a deck class instead. The skeleton of the class is below to give you a starting point.</p>
+			<pre>
+				<code class="python" data-trim>
+					import random
+
+					class Deck:
+
+						suits = ?
+						ranks = ?
+
+						def __init__(self):
+							self.cards = self.__shuffled_deck()
+
+						# This method has '__' at the start to mark it as 'private'
+						def __shuffled_deck(self):
+							?
+
+						def deal(self):
+							?
+				</code>
+			</pre>
+		</section>
+		<section>
+			<p>Solution</p>
+			<pre>
+				<code class="python" data-trim>
+					import random
+
+					class Deck:
+
+						suits = ['D', 'H', 'S', 'C']
+						ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+
+						def __init__(self):
+							self.cards = self.__shuffled_deck()
+
+						def __shuffled_deck(self):
+							cards = []
+							for s in self.suits:
+								for r in self.ranks:
+									cards.append(s + r)
+							random.shuffle(cards)
+							return cards
+
+						def deal(self):
+							return self.cards.pop()
+				</code>
+			</pre>
+		</section>
+		<section>
+			<p>Rather than having cards that are just strings, we might want to have a card class, which we could include methods in to e.g. tell us the value of the card.
+				The deck class could then use it.</p>
+			<pre>
+				<code class="python" data-trim>
+					class Card:
+
+						value_lookup = {
+							 'A': 1, '2': 2, '3': 3, '4': 4, '5': 5,
+							 '6': 6, '7': 7, '8': 8, '9': 9, 'J': 10,
+							 'Q': 10, 'K': 10
+							}
+
+						def __init__(self, suit, rank):
+							self.suit = ?
+							self.rank = ?
+
+						def value(self):
+							?
+
+						def print(self):
+							# stretch exercise, make it print a nicer representation of a card
+							# (e.g. suit symbols, ASCII art...)
+							?
+				</code>
+			</pre>
+		</section>
+		<section>
+			<p>Solution</p>
+			<pre>
+				<code class="python" data-trim>
+					class Card:
+
+						value_lookup = {
+							 'A': 1, '2': 2, '3': 3, '4': 4, '5': 5,
+							 '6': 6, '7': 7, '8': 8, '9': 9, 'J': 10,
+							 'Q': 10, 'K': 10
+							}
+
+						def __init__(self, suit, rank):
+							self.suit = suit
+							self.rank = rank
+
+						def value(self):
+							return self.value_lookup[self.rank]
+
+						def print(self):
+							print(self.suit + self.rank)
+				</code>
+			</pre>
+		</section>
+		<section>
+			<p>Now try changing you deck class to use the card class</p>
+		</section>
+		<section>
+			<p>Solution</p>
+			<pre>
+				<code class="python" data-trim>
+					import random
+
+					class Deck:
+
+						suits = ['D', 'H', 'S', 'C']
+						ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+
+						def __init__(self):
+							self.cards = self.__shuffled_deck()
+
+						def __shuffled_deck(self):
+							cards = []
+							for s in suits:
+								for r in ranks:
+									cards.append(Card(s, r))
+							random.shuffle(cards)
+							return cards
+
+						def deal(self):
+							return self.cards.pop()
+				</code>
+			</pre>
+		</section>
+		<section>
+			<p>Next we will need a player. They should have a hand of cards, and methods to 'hit' and 'stick'.</p>
+		</section>
+		<section>
+			<p>Solution</p>
+			<pre>
+				<code class="python" data-trim>
+					class Player:
+
+						def __init__(self, name):
+							self.name = name
+							self.hand = []
+							self.sticking = False
+
+						def hit(self, card):
+							self.hand.append(card)
+
+						def stick(self):
+							self.sticking = True
+				</code>
+			</pre>
+		</section>
+		<section>
+			<p>Finally we need a game class, that will have a method to play the game, along with other relevant variables and methods,
+				including scoring, getting input from the player, and ending the game.</p>
+		</section>
+		<section>
+			<p>Potential starting point:</p>
+			<pre>
+				<code class="python" data-trim>
+					class BlackJack:
+
+						def __init__(self):
+							self.deck = ?
+							self.players = ?
+							self.dealer = ?
+
+						def play(self):
+							self.__print_welcome_message()
+							self.__get_game_players()
+							self.__deal_initial_player_hands()
+							self.__deal_and_show_initial_dealer_hand()
+							self.__players_play()
+							self.__dealer_play()
+							self.__calc_and_display_winners()
+				</code>
+			</pre>
+		</section>
+    </div>
+</div>
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+<script>
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'convex', // none/fade/slide/convex/concave/zoom
+        // Optional reveal.js plugins
+        dependencies: [
+            {
+                src: 'lib/js/classList.js', condition: function () {
+                    return !document.body.classList;
+                }
+            },
+            {
+                src: 'plugin/markdown/marked.js', condition: function () {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            },
+            {
+                src: 'plugin/markdown/markdown.js', condition: function () {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            },
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                    hljs.configure({tabReplace: '  '})
+                }
+            },
+            {src: 'plugin/zoom-js/zoom.js', async: true},
+            {src: 'plugin/notes/notes.js', async: true}
+        ]
+    });
+</script>
+</body>
+</html>
