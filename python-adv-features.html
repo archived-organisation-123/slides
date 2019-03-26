@@ -1,0 +1,193 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/blood.css">
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown>
+					<textarea data-template>
+						## Useful and Advanced features of Python
+
+						`1nFwoRks!` <!-- .element: class="fragment fade-up" -->
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### We are going to cover
+						#### (potentially not all of them though!):
+
+						- List Comprehensions <!-- .element: class="fragment fade-up" -->
+						- Dict Comprehensions <!-- .element: class="fragment fade-up" -->
+						- Decorators <!-- .element: class="fragment fade-up" -->
+						- Generators <!-- .element: class="fragment fade-up" -->
+						- Context Managers <!-- .element: class="fragment fade-up" -->
+
+					</textarea>
+				</section>
+				<section>
+					<section data-markdown>
+						<textarea data-template>
+							## List Comprehensions
+
+							A concise syntax for creating lists <!-- .element: class="fragment fade-up" -->
+						</textarea>
+					</section>
+					<section>
+						<h3>
+							We might create a list like this
+						</h3>
+						<pre class="fragment fade-up">
+							<code class="python" data-trim>
+								nums = [1, 2, 3]
+								new_list = []
+								for num in nums:
+									 new_list.append(num * 6)
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>
+							But with list comprehesions we can do this!
+						</h3>
+						<pre class="fragment fade-up">
+							<code class="python" data-trim>
+								new_list = [num * 6 for num in [1, 2, 3]]
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h4>
+							but that's not all, they also support nesting and conditionals
+						</h4>
+						<p class="fragment fade-up">exercise: try to turn the following 'traditional' nested loop into a list comprehesion</p>
+						<pre class="fragment fade-up">
+							<code class="python" data-trim>
+								values = ['A', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+								suits = ['H', 'D', 'S', 'C']
+								cards = []
+								for value in values:
+									for suit in suits:
+										cards.append(suit + value)
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>
+							Solution
+						</h3>
+						<pre class="fragment fade-up">
+							<code class="python" data-trim>
+								suits = ['H', 'D', 'S', 'C']
+								values = ['A', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+								cards = [value + suit for value in values for suit in suits]
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>
+							and using conditionals...
+						</h3>
+						<pre class="fragment fade-up">
+							<code class="python" data-trim>
+								nums = [1, 2, 3, 4, 5, 6, 7, 8]
+								odds = []
+								for num in nums:
+									if num % 2 > 0:
+										odds.append(num)
+							</code>
+						</pre>
+						<h3 class="fragment fade-up">
+							becomes...
+						</h3>
+						<pre class="fragment fade-up">
+							<code class="python" data-trim>
+								nums = [1, 2, 3, 4, 5, 6, 7, 8]
+								odds = [num for num in nums if num % 2 > 0]
+							</code>
+						</pre>
+					</section>
+				</section>
+				<section>
+					<section data-markdown>
+						<textarea data-template>
+							## Dict Comprehensions
+
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							dict
+
+						</textarea>
+					</section>
+				</section>
+				<section>
+					<section data-markdown>
+						<textarea data-template>
+							## Decorators
+
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							decorators
+
+						</textarea>
+					</section>
+				</section>
+				<section>
+					<section data-markdown>
+						<textarea data-template>
+							## Generators
+
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							generators
+
+						</textarea>
+					</section>
+				</section>
+				<section>
+					<section data-markdown>
+						<textarea data-template>
+							## Context Managers
+
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							context managers
+
+						</textarea>
+					</section>
+				</section>
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); hljs.configure({tabReplace: '  '}) } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
