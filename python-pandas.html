@@ -1,0 +1,367 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/blood.css">
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Python Pandas</h1>
+
+                <img src="https://miro.medium.com/max/3006/1*i1vVm3EqqDIkyucD0079wg.jpeg"></img>
+
+                <div class="fragment fade-up"><code>1nFwoRks!</code></div>
+            </section>
+            <section>
+                <h3>We are going to cover:
+                    </h1>
+
+                    <ul>
+                        <li>What is Pandas</li>
+                        <li>Why is it useful</li>
+                        <li>Installing - Anoconda</li>
+                        <li>What it can do</li>
+                    </ul>
+
+            </section>
+            <section>
+                <h3>What is Pandas?</h3>
+
+                <ul>
+                    <li>Library for data manipulation and analysis</li>
+                    <li>Highly optimised for this purpose</li>
+                    <li>Provides powerful, expressive and flexible data structures</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Why is it useful</h3>
+
+                <ul>
+                    <li>You can do manipulation and analysis of data WAY more easily!</li>
+                </ul>
+
+            </section>
+            <section>
+                <h3>Data Frames</h3>
+
+                <ul>
+                    <li>A very useful data structure</li>
+                    <li>2 dimensional</li>
+                    <li>Think Excel spreadsheet</li>
+                </ul>
+                <img src="img/pandas/dataframe.png">
+
+            </section>
+            <section>
+                <p>Now imagine we had a dictionary of information on pokemon...</p>
+                <pre>
+            <code class="python" data-trim>
+                pokemon = {
+                    "Bulbasaur": ("001", ["grass", "poison"], 45, 49, 49, 65, 65, 45),
+                    "Charmander": ("004", ["fire"], 39, 52, 43, 60, 50, 65),
+                    "Squirtle": ("007", ["water"], 44, 48, 65, 50, 64, 43),
+                    "Caterpie": ("010", ["bug"], 45, 30, 35, 20, 20, 45),
+                    "Weedle": ("013", ["bug", "poison"], 40, 35, 30, 20, 20, 50),
+                    "Pidgey": ("016", ["normal", "flying"], 40, 45, 40, 35, 35, 56),
+                    "Rattata": ("019", ["normal"], 30, 56, 35, 25, 35, 72),
+                    "Spearow": ("021", ["normal", "flying"], 40, 60, 30, 31, 31, 70),
+                    "Pikachu": ("025", ["electric"], 35, 55, 40, 50, 50, 90)
+                }
+            </code>
+            </pre>
+                <p>Doing analysis of that data might be a bit of a pain</p>
+                <p>For starters, what even is this data?!</p>
+            </section>
+            <section>
+                <p>For example, if we wanted to find out who was the fastest (last bit of data):</p>
+                <pre>
+            <code class="python" data-trim>
+                    fastest = ("", 0)
+
+                    for mon, data in pokemon.items():
+                        speed = data[7]
+                        if speed > fastest[1]:
+                            fastest = (mon, speed)
+
+                    print(fastest)
+                </code>
+                </pre>
+            </section>
+            <section>
+                <h6>With pandas...</h6>
+                <pre>
+                    <code class="python" data-trim>
+                        import pandas as pd
+
+                        pokemon = {
+                            "Bulbasaur": ("001", ["grass", "poison"], 45, 49, 49, 65, 65, 45),
+                            "Charmander": ("004", ["fire"], 39, 52, 43, 60, 50, 65),
+                            "Squirtle": ("007", ["water"], 44, 48, 65, 50, 64, 43),
+                            "Caterpie": ("010", ["bug"], 45, 30, 35, 20, 20, 45),
+                            "Weedle": ("013", ["bug", "poison"], 40, 35, 30, 20, 20, 50),
+                            "Pidgey": ("016", ["normal", "flying"], 40, 45, 40, 35, 35, 56),
+                            "Rattata": ("019", ["normal"], 30, 56, 35, 25, 35, 72),
+                            "Spearow": ("021", ["normal", "flying"], 40, 60, 30, 31, 31, 70),
+                            "Pikachu": ("025", ["electric"], 35, 55, 40, 50, 50, 90)
+                        }
+                    </code>
+                </pre>
+                <pre>
+                    <code class="python" data-trim>
+                            df = pd.DataFrame.from_dict(
+                                data=pokemon,
+                                orient='index',
+                                columns=("Number", "Type", "HP", "Attack", "Defense",
+                                "Sp. Attack", "Sp. Defense", "Speed")
+                            )
+    
+                            df.loc[df['Speed'].idxmax()]
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <pre>
+                    <code class="python" data-trim>
+                        df.loc[df['Speed'].idxmax()]
+                    </code>
+                </pre>
+                <h6>Lets break that down</h6>
+                <ul>
+                    <li><code>df['Speed'].idxmax()</code> – > returns the index of the row where thre column name "Speed"
+                        has the maximum value.</li>
+                    <li><code>df.loc[]</code> -> returns the row of that index</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Time to install things</h2>
+
+                <p>We will use Anoconda Python for this, as it makes life a whole lot easier</p>
+                <ul>
+                    <li>Python packaged with everything you need for data science</li>
+                    <li>Download the 3.7 version for your system from here:</li>
+                    <div><code>https://www.anaconda.com/distribution/</code></div>
+                    <li>Choose to install it somewhere you know</li>
+                </ul>
+
+            </section>
+            <section>
+                <h2>Time to get interactive</h2>
+                <p>Create a new python file in your favourite IDE or text editor, e.g. <code>codeup_pandas.py</code></p>
+            </section>
+            <section>
+                <p>Copy this code into it:</p>
+                <pre>
+                    <code class="python" data-trim>
+                        import pandas as pd
+
+                        pokemon = {
+                            "Bulbasaur": ("001", ["grass", "poison"], 45, 49, 49, 65, 65, 45),
+                            "Charmander": ("004", ["fire"], 39, 52, 43, 60, 50, 65),
+                            "Squirtle": ("007", ["water"], 44, 48, 65, 50, 64, 43),
+                            "Caterpie": ("010", ["bug"], 45, 30, 35, 20, 20, 45),
+                            "Weedle": ("013", ["bug", "poison"], 40, 35, 30, 20, 20, 50),
+                            "Pidgey": ("016", ["normal", "flying"], 40, 45, 40, 35, 35, 56),
+                            "Rattata": ("019", ["normal"], 30, 56, 35, 25, 35, 72),
+                            "Spearow": ("021", ["normal", "flying"], 40, 60, 30, 31, 31, 70),
+                            "Pikachu": ("025", ["electric"], 35, 55, 40, 50, 50, 90)
+                        }
+
+                        df = pd.DataFrame.from_dict(
+                            data=pokemon,
+                            orient='index',
+                            columns=("Number", "Type", "HP", "Attack", "Defense",
+                            "Sp. Attack", "Sp. Defense", "Speed")
+                        )
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <p>Now run this in your terminal</p>
+                <pre>
+                    <code class="shell" data-trim>
+                        path/to/anoconda/bin/ipython -i codeup_pandas.py
+                    </code>
+                </pre>
+                <p>You should end up with something that looks like this:</p>
+                <img src="img/pandas/ipython.png">
+            </section>
+            <section>
+                <p>And the variable 'df' - the DataFrame that we defined in our file - will be available to us:</p>
+                <img src="img/pandas/df_var.png">
+            </section>
+            <section>
+                <p>Now try having a little play around with 'df'</p>
+                <p>If you type '<code>df</code>.' and then press tab, 
+                    a list of the 'methods' available to you will be displayed</p>
+                <p>See if you can work out how to find the row with the lowest HP</p>
+            </section>
+            <section>
+                <pre>
+                    <code class="python" data-trim>
+                        df.loc[df['HP'].idxmin()] 
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <p>Quick stats on the data:</p>
+                <pre>
+                    <code class="python" data-trim>
+                        df.describe()
+                        df.mean()
+                        df['HP'].mean()
+                        df.median()
+                        df['HP'].median()
+                        df.mode()
+                        df['HP'].mode()
+                        df.std()
+                        df['HP'].std()
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <p>Adding and removing data:</p>
+                <pre>
+                    <code class="python" data-trim>
+                            new_data = pd.Series({
+                                "Number": "113", "Type": ["Normal"], "HP": 250, "Attack": 5,
+                                "Defense": 5, "Sp. Attack": 35, "Sp. Defense": 105, "Speed": 50
+                            }, name='Chansey')
+                            df.append(new_data) # add a new row
+
+                            df.drop('Weedle')  # remove row
+                            df.drop('Speed', axis=1)  # remove column
+                    </code>
+                </pre>
+            </section>
+            <!-- Applying a function -->
+            <section>
+                <p>You can apply a function to transform your data:</p>
+                <pre>
+                    <code class="python" data-trim>
+                            def string_to_int(number): 
+                                return int(number)
+                    </code>
+                </pre>
+                <pre class="fragment fade-up">
+                    <code class="python" data-trim>
+                        df['Number'].apply(string_to_int)
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <p>Replace occurences of specific data:</p>
+                <pre class="fragment fade-up">
+                    <code class="python" data-trim>
+                            df.replace([90], ['fast!']) 
+                    </code>
+                </pre>
+                </section>
+            <section>
+                <p>Sort data in columns:</p>
+                <pre class="fragment fade-up">
+                    <code class="python" data-trim>
+                        df.sort_values(by='Attack')
+
+                        df.sort_values(by='Speed',ascending=0)
+
+                        df.sort_values(by=['Attack', 'Defense'],ascending=[True,False])
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <p>Group data:</p>
+                <pre>
+                    <code class="python" data-trim>
+                        import pandas as pd
+                        d = {
+                            'Name':['Alisa','Bobby','Cathrine','Alisa','Bobby','Cathrine',
+                                    'Alisa','Bobby','Cathrine','Alisa','Bobby','Cathrine'],
+                            'Exam':['Semester 1','Semester 1','Semester 1','Semester 1','Semester 1','Semester 1',
+                                    'Semester 2','Semester 2','Semester 2','Semester 2','Semester 2','Semester 2'],
+                                
+                            'Subject':['Mathematics','Mathematics','Mathematics','Science','Science','Science',
+                                        'Mathematics','Mathematics','Mathematics','Science','Science','Science'],
+                            'Score':[62,47,55,74,31,77,85,63,42,67,89,81]
+                        }
+                    </code>
+                </pre>
+                <pre>
+                    <code class="python" data-trim>            
+                        df = pd.DataFrame(d,columns=['Name','Exam','Subject','Score'])
+
+                        df['Score'].groupby([df['Name']]).mean()
+
+                        df['Score'].groupby([df['Name'],df['Exam']]).sum()
+
+                        df.groupby(['Subject', 'Exam']).sum()
+
+                        df['Score'].groupby(df['Subject']).describe()
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <p>And so much more!! E.g.</p>
+                <ul>
+                    <li>Read data from csv, json, database</li>
+                    <li>Filtering</li>
+                    <li>Data cleaning</li>
+                    <li>Join/Combine</li>
+                    <li>Pivot data</li>
+                    <li>Create create plots and graphs with matplotlib</li>
+                </ul>
+                <p>Go and explore! :D</p>
+            </section>
+            <section>
+                <h3>Let us know how we did</h3>
+                <p>Please fill in the survey: https://codeupleeds.github.io/feedback</p>
+                <img src="img/feedback-qr.png">
+                <p>Also... <a href="https://join.slack.com/t/codeupleeds/shared_invite/enQtMzgyODEzODYwODIxLWY1MTZkOTc0MGQ0ZDlhNTkzYmI2YmIxMGJiYzdjZjI5Y2Q1ZTgyMTQyZmZmOTBiZDQzNWQ4NmJlNjc3ZjlhN2E">Join us on slack!</a></p>
+                <link>
+            </section>
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+            transition: 'convex', // none/fade/slide/convex/concave/zoom
+            // Optional reveal.js plugins
+            dependencies: [
+                {
+                    src: 'lib/js/classList.js', condition: function () {
+                        return !document.body.classList;
+                    }
+                },
+                {
+                    src: 'plugin/markdown/marked.js', condition: function () {
+                        return !!document.querySelector('[data-markdown]');
+                    }
+                },
+                {
+                    src: 'plugin/markdown/markdown.js', condition: function () {
+                        return !!document.querySelector('[data-markdown]');
+                    }
+                },
+                {
+                    src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                        hljs.initHighlightingOnLoad();
+                        hljs.configure({ tabReplace: '  ' })
+                    }
+                },
+                { src: 'plugin/zoom-js/zoom.js', async: true },
+                { src: 'plugin/notes/notes.js', async: true }
+            ]
+        });
+    </script>
+</body>
+
+</html>
