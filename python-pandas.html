@@ -24,7 +24,6 @@
                     <ul>
                         <li>What is Pandas</li>
                         <li>Why is it useful</li>
-                        <li>Installing - Anoconda</li>
                         <li>What it can do</li>
                     </ul>
 
@@ -74,8 +73,8 @@
                 }
             </code>
             </pre>
-                <p>Doing analysis of that data might be a bit of a pain</p>
-                <p>For starters, what even is this data?!</p>
+                <p>This is only a small subset or pokemon, but doing analysis of even that data might be a bit of a pain</p>
+                <p>For starters, what even is this data?! Even if we know the columns, we'd have to keep counting</p>
             </section>
             <section>
                 <p>For example, if we wanted to find out who was the fastest (last bit of data):</p>
@@ -120,7 +119,7 @@
                                 "Sp. Attack", "Sp. Defense", "Speed")
                             )
     
-                            df.loc[df['Speed'].idxmax()]
+                            print(df.loc[df['Speed'].idxmax()])
                     </code>
                 </pre>
             </section>
@@ -132,30 +131,27 @@
                 </pre>
                 <h6>Lets break that down</h6>
                 <ul>
-                    <li><code>df['Speed'].idxmax()</code> – > returns the index of the row where thre column name "Speed"
+                    <li><code>df['Speed'].idxmax()</code> – > returns the index (identity) of the row where the column named "Speed"
                         has the maximum value.</li>
-                    <li><code>df.loc[]</code> -> returns the row of that index</li>
+                    <li><code>df.loc[]</code> -> returns the row with that index (identity)</li>
                 </ul>
             </section>
             <section>
-                <h2>Time to install things</h2>
+                <h2>Time to have a go yourselves</h2>
 
-                <p>We will use Anoconda Python for this, as it makes life a whole lot easier</p>
+                <p>If you already have pandas locally and are comfortable on how to import it into a python file, do that</p>
+                <p>Otherwise...</p>
                 <ul>
-                    <li>Python packaged with everything you need for data science</li>
-                    <li>Download the 3.7 version for your system from here:</li>
-                    <div><code>https://www.anaconda.com/distribution/</code></div>
-                    <li>Choose to install it somewhere you know</li>
+                    <li>We are going to use an online tool - repl.it</li>
+                    <li>Go to <a>https://repl.it/languages/python3</a></li>
+                    <li>Go to 'packages', search for pandas and add to the environment</li>
                 </ul>
+                
+                <img class="stretch" src="img/pandas/packages.png">
 
             </section>
             <section>
-                <h2>Time to get interactive</h2>
-                <p>Create a new python file in your favourite IDE or text editor, e.g. <code>codeup_pandas.py</code></p>
-                <p>Do NOT call it <code>pandas.py</code></p>
-            </section>
-            <section>
-                <p>Copy this code into it:</p>
+                <p>Copy this code into the text editor (the white side of the screen):</p>
                 <pre>
                     <code class="python" data-trim>
                         import pandas as pd
@@ -182,30 +178,19 @@
                 </pre>
             </section>
             <section>
-                <p>Now if you are running on Linux/iOS run this in your terminal</p>
-                <pre>
-                    <code class="shell" data-trim>
-                        path/to/anoconda/bin/ipython -i codeup_pandas.py
-                    </code>
-                </pre>
-                <p>If you are running on Windows, find the 'Anoconda Prompt' program from your start menu, then run the following in it:</p>
-                <pre>
-                    <code class="shell" data-trim>
-                        ipython -i codeup_pandas.py
-                    </code>
-                </pre>
-                <p>You should end up with something that looks like this:</p>
-                <img src="img/pandas/ipython.png">
-            </section>
-            <section>
-                <p>And the variable 'df' - the DataFrame that we defined in our file - will be available to us:</p>
-                <img src="img/pandas/df_var.png">
+                <p>Now press the 'run' button</p>
+                <p>Once it has finished processing, move over to the black screen, type 'df' and press enter</p>
+                <p>You should see something that looks like this:</p>
+                <img class="stretch" src="img/pandas/df_var.png">
+                <p>This is the dataframe we defined before</p>
             </section>
             <section>
                 <p>Now try having a little play around with 'df'</p>
-                <p>If you type '<code>df</code>.' and then press tab, 
+                <p>If you type '<code>df</code>.' and then press tab twice, 
                     a list of the 'methods' available to you will be displayed</p>
                 <p>See if you can work out how to find the row with the lowest HP</p>
+                <p>(the previous example finding the highest speed will be very helpful)</p>
+                <p>Also: <a>https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html</a></p>
             </section>
             <section>
                 <pre>
@@ -319,9 +304,13 @@
                     <li>Data cleaning</li>
                     <li>Join/Combine</li>
                     <li>Pivot data</li>
-                    <li>Create create plots and graphs with matplotlib</li>
+                    <li>Create plots and graphs with matplotlib</li>
                 </ul>
                 <p>Go and explore! :D</p>
+            </section>
+            <section>
+                <p>For something a bit fancier, there is a pokemon api where you can get stats on all the pokemon</p>
+                <p>Why not try it! https://pokeapi.co/</p>
             </section>
             <section>
                 <h3>Let us know how we did</h3>
